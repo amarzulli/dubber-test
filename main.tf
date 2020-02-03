@@ -7,6 +7,19 @@ resource ibm_is_vpc vpc {
 }
 
 ##############################################################################
+# Prefixes and subnets for zone 1
+##############################################################################
+
+resource ibm_is_vpc_address_prefix subnet_prefix {
+  count = "3"
+
+  name  = "schematics-vpc-prefix-zone-${count.index + 1}"
+  zone  = "${var.ibm_region}-${(count.index % 3) + 1}"
+  vpc   = "${ibm_is_vpc.vpc.id}"
+  cidr  = "${element(var.cidr_blocks, count.index)}"
+}
+
+##############################################################################
 # Create Subnets
 ##############################################################################
 
