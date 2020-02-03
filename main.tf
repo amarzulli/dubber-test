@@ -46,15 +46,15 @@ resource ibm_container_vpc_cluster cluster {
 
   zones = [
     {
-      subnet_id = "${ibm_is_subnet.subnet1.id}"
+      subnet_id = "${ibm_is_subnet.subnet[0].id}"
       name      = "${var.ibm_region}-1"
     },
     {
-      subnet_id = "${ibm_is_subnet.subnet2.id}"
+      subnet_id = "${ibm_is_subnet.subnet[1].id}"
       name      = "${var.ibm_region}-2"
     },
     {
-      subnet_id = "${ibm_is_subnet.subnet3.id}"
+      subnet_id = "${ibm_is_subnet.subnet[2].id}"
       name      = "${var.ibm_region}-3"
     }
   ]
