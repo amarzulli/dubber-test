@@ -31,3 +31,33 @@ resource ibm_is_subnet subnet {
   zone            = "${var.ibm_region}-${count.index + 1}"
   ipv4_cidr_block = "${element(ibm_is_vpc_address_prefix.subnet_prefix.*.cidr, count.index)}" 
 }
+
+##############################################################################
+# Create IKS on VPC Cluster
+##############################################################################
+
+resource ibm_container_vpc_cluster cluster {
+
+  name               = "schematics-iks"
+  vpc_id             = "${ibm_is_vpc.vpc.id}"
+  flavor             = "${var.machine_type}"
+  worker_count       = "${var.worker_count}"
+  
+
+  zones = [
+    {
+      subnet_id = "${ibm_is_subnet.subnet[subnet_id_1]}"
+      name      = "${var.ibm_region}-1"
+    },
+    {
+      subnet_id = "${ibm_is_subnet.subnet[subnet_id_2]}"
+      name      = "${var.ibm_region}-2"
+    },
+    {
+      subnet_id = "${ibm_is_subnet.subnet[subnet_id_3]}"
+      name      = "${var.ibm_region}-3"
+    }
+  ]
+}
+
+##############################################################################
