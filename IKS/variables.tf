@@ -22,10 +22,7 @@ variable resource_group {
 
 variable vpc_workspace_id {
   description = "GUID of Schematics VPC Workspace"
-}
-
-variable resources_workspace_id {
-  description = "GUID of Schematics Resources Workspace"
+  default     = "VPC-IKS-798f09a2-6243-40"
 }
 
 
