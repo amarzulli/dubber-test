@@ -11,7 +11,7 @@
 resource ibm_is_vpc vpc {
   name           = "${var.unique_id}-vpc"
   resource_group = "${data.ibm_resource_group.resource_group.id}"
-  classic_access = true
+  classic_access = false
 }
 
 ##############################################################################
