@@ -38,6 +38,7 @@ variable resources_workspace_id {
 
 variable "cluster_name" {
   description = "name for the iks cluster"
+  default     = "schematics-cluster"
 }
 
 variable machine_type {
