@@ -15,7 +15,7 @@ output vpc_id {
 
 output vpc_workspace_id {
   description = "Schematics Workspace of VPC created"
-  value       = "${data.ibm_schematics_workspace.vpc.id}"
+  value       = "${data.ibm_schematics_workspace.VPC-IKS.id}"
 }
 
 
