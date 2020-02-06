@@ -15,7 +15,7 @@ output vpc_id {
 
 output vpc_workspace_id {
   description = "Schematics Workspace of VPC created"
-  value       = "${terraform.workspace.id}"
+  value       = "${terraform.workspace}"
 }
 
 
