@@ -36,7 +36,7 @@ resource ibm_is_vpc_address_prefix subnet_prefix {
 # Create Public Gateways
 ##############################################################################
 
-resource ibm_is_public_gateway {
+resource ibm_is_public_gateway gateway{
   count           = "3"
 
   name            = "${var.unique_id}-gateway-${count.index + 1}"
@@ -60,7 +60,7 @@ resource ibm_is_subnet subnet {
   zone            = "${var.ibm_region}-${count.index + 1}"
   ipv4_cidr_block = "${element(ibm_is_vpc_address_prefix.subnet_prefix.*.cidr, count.index)}"
   network_acl     = "${ibm_is_network_acl.multizone_acl.id}" 
-  public_gateway  = "${element(ibm_is_public_gateway.id, count.index)}"
+  public_gateway  = "${element(ibm_is_public_gateway.gateway.id, count.index)}"
 }
 
 ##############################################################################
