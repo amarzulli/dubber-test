@@ -13,7 +13,7 @@ data ibm_resource_group resource_group {
 # Schematics outputs from VPC Workspace
 ##############################################################################
 
-data ibm_schematics_output vpc {
+data ibm_schematics_workspace vpc {
    workspace_id = "${var.vpc_workspace_id}"
    #workspace_id = "{data.ibm_schematics_output.vpc.output_values["workspace_id"]}"
 }
