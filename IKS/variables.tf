@@ -40,7 +40,7 @@ variable "cluster_name" {
 
 variable machine_type {
   description = "Machine type for the IKS Cluster"
-  default     = "b2.2x8"
+  default     = "c2.2x4"
 }
 
 
