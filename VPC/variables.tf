@@ -14,7 +14,7 @@ variable resource_group {
 
 variable unique_id {
     description = "The IBM Cloud platform API key needed to deploy IAM enabled resources"
-    default    = "andrew"
+    default    = "schematics"
 }
 
 ##############################################################################
